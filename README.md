@@ -36,3 +36,10 @@ Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
 Personal changes
 ----------------
 This is a personal fork to store <code>config.h</code> and patches.
+
+The following patches are applied:
+
+    - scrollback
+        * scrollback
+        * scrollback-mouse
+        * scrollback-mouse-increment
