@@ -5,11 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true";
+/* static char *font = "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true"; */
 /* static char *font = "Hack:size=12:antialias=true:autohint=true"; */
 /* static char *font = "Fira Code:size=12:antialias=true:autohint=true"; */
 /* static char *font = "CascadiaCode:size=12:antialias=true:autohint=true"; */
-/* static char *font = "RobotoMono:size=12:antialias=true:autohint=true"; */
+static char *font = "RobotoMono:size=12:antialias=true:autohint=true";
 /* static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true"; */
 static int borderpx = 2;
 
@@ -99,7 +99,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 1., alphaUnfocused = 1.;
+float alpha = 0.8, alphaUnfocused = 0.7;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -129,7 +129,6 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
     "#252525",
-    "#251f1f",
     /* "black", */
 };
 
@@ -142,7 +141,7 @@ unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
-unsigned int bg = 258, bgUnfocused = 259;
+unsigned int bg = 258, bgUnfocused = 258;
 
 /*
  * Default shape of cursor
