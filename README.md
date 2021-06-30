@@ -43,3 +43,4 @@ The following patches are applied:
         * scrollback
         * scrollback-mouse
         * scrollback-mouse-increment
+    - alpha-focus-highlight
