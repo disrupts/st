@@ -45,3 +45,4 @@ The following patches are applied:
         * scrollback-mouse-increment
     - alpha-focus-highlight
     - clipboard
+    - dynamic-cursor-color
