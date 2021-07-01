@@ -48,3 +48,4 @@ The following patches are applied:
 - dynamic-cursor-color
 - font2
 - anysize
+- undercurl
