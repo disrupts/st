@@ -39,10 +39,11 @@ This is a personal fork to store <code>config.h</code> and patches.
 
 The following patches are applied:
 
-    - scrollback
-        * scrollback
-        * scrollback-mouse
-        * scrollback-mouse-increment
-    - alpha-focus-highlight
-    - clipboard
-    - dynamic-cursor-color
+- scrollback
+    * scrollback
+    * scrollback-mouse
+    * scrollback-mouse-increment
+- alpha-focus-highlight
+- clipboard
+- dynamic-cursor-color
+- font2
