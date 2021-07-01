@@ -47,3 +47,4 @@ The following patches are applied:
 - clipboard
 - dynamic-cursor-color
 - font2
+- anysize
