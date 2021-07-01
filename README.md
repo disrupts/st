@@ -50,3 +50,5 @@ The following patches are applied:
 - anysize
 - undercurl
 - st-hidecursor
+- boxdraw
+- colors-at-launch
