@@ -49,3 +49,4 @@ The following patches are applied:
 - font2
 - anysize
 - undercurl
+- st-hidecursor
