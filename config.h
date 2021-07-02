@@ -5,17 +5,22 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/* static char *font = "IBM Plex Mono:pixelsize=12:antialias=true:autohint=true"; */
+static char *font = "CascadiaCode:size=12:antialias=true:autohint=true";
+/* static char *font = "RobotoMono:size=12:antialias=true:autohint=true"; */
+/* static char *font = "Inconsolata-g:pixelsize=12:antialias=true:autohint=true"; */
 /* static char *font = "Hack:size=12:antialias=true:autohint=true"; */
 /* static char *font = "Fira Code:size=12:antialias=true:autohint=true"; */
-/* static char *font = "CascadiaCode:size=12:antialias=true:autohint=true"; */
-static char *font = "RobotoMono:size=12:antialias=true:autohint=true";
-/* static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true"; */
+/* static char *font = "IBM Plex Mono:size=12:antialias=true:autohint=true"; */
 
 /* Spare fonts */
+/* Adds them in fron of the font cache, they would get picked up in another */
+/* order without this patch. */
 static char *font2[] = {
-    "Liberation Mono:pixelsize=12:antialias=true:autohint=true",
-    "Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true",
+    "Hanazono:size=12:antialias=true:autohint=true",  // Japanese
+    "Baekmuk:size=12:antialias=true:autohint=true",  // Korean
+    /* "Sazanami:size=12:antialias=true:autohint=true",  // Japanese - not install, messes with cache*/
+    /* "Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+    /* "Fira Code:size=12:antialias=true:autohint=true", */
 };
 
 static int borderpx = 2;
