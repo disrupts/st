@@ -5,9 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "CascadiaCode:size=12:antialias=true:autohint=true";
+/* static char *font = "CascadiaCode:size=12:antialias=true:autohint=true"; */
+static char *font = "Inconsolata\\-lig:style=lig:size=12:antialias=true:autohint=true";
+/* static char *font = "Inconsolata\\-g:style=g:size=12:antialias=true:autohint=true"; */
 /* static char *font = "RobotoMono:size=12:antialias=true:autohint=true"; */
-/* static char *font = "Inconsolata-g:pixelsize=12:antialias=true:autohint=true"; */
 /* static char *font = "Hack:size=12:antialias=true:autohint=true"; */
 /* static char *font = "Fira Code:size=12:antialias=true:autohint=true"; */
 /* static char *font = "IBM Plex Mono:size=12:antialias=true:autohint=true"; */
@@ -19,8 +20,10 @@ static char *font2[] = {
     "Hanazono:size=12:antialias=true:autohint=true",  // Japanese
     "Baekmuk:size=12:antialias=true:autohint=true",  // Korean
     /* "Sazanami:size=12:antialias=true:autohint=true",  // Japanese - not install, messes with cache*/
-    /* "Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+    /* "CascadiaCode:size=12:antialias=true:autohint=true", */
     /* "Fira Code:size=12:antialias=true:autohint=true", */
+    /* "Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+    "Symbola:pixelsize=12:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -43,8 +46,11 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-static float cwscale = 1.0;
-static float chscale = 1.0;
+/* static float cwscale = 1.0; */
+/* static float chscale = 1.0; */
+// workaround for Inconsolata bug
+static float cwscale = 0.31;
+static float chscale = 1.2;
 
 /*
  * word delimiter string
@@ -85,15 +91,15 @@ static unsigned int blinktimeout = 800;
 static unsigned int cursorthickness = 2;
 
 /*
- * 1: render most of the lines/blokcs characters without using the font for
+ * 1: render most of the lines/blocks characters without using the font for
  *    perfect alignment between cells (U2500 - U259F except dashes/diagonals).
- *    Bold affects lines thickness if boxdraw_bold is not 0. Italics is ignored.
+ *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
 const int boxdraw = 1;
 const int boxdraw_bold = 1;
 
-/* braille (U28XX): 1: render as adjacent "pixels", 0: use font */
+/* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
 const int boxdraw_braille = 1;
 
 /*
