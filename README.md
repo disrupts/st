@@ -52,3 +52,4 @@ The following patches are applied:
 - st-hidecursor
 - boxdraw
 - colors-at-launch
+- ligatures
