@@ -53,3 +53,4 @@ The following patches are applied:
 - boxdraw
 - colors-at-launch
 - ligatures
+- vertcenter
