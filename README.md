@@ -47,8 +47,10 @@ The following patches are applied:
 - clipboard
 - dynamic-cursor-color
 - font2
-- anysize
 - undercurl
 - st-hidecursor
 - boxdraw
 - colors-at-launch
+- vertcenter
+
+anysize patch was removed as it seemed more annoying than beneficial.
