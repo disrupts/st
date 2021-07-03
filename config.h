@@ -5,8 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/* static char *font = "CascadiaCode:size=12:antialias=true:autohint=true"; */
 static char *font = "Inconsolata\\-lig:style=lig:size=12:antialias=true:autohint=true";
+/* static char *font = "Ubuntu Mono Ligaturized:size=12:antialias=true:autohint=true"; */
+/* static char *font = "CascadiaCode:size=12:antialias=true:autohint=true"; */
 /* static char *font = "Inconsolata\\-g:style=g:size=12:antialias=true:autohint=true"; */
 /* static char *font = "RobotoMono:size=12:antialias=true:autohint=true"; */
 /* static char *font = "Hack:size=12:antialias=true:autohint=true"; */
@@ -97,10 +98,10 @@ static unsigned int cursorthickness = 2;
  * 0: disable (render all U25XX glyphs normally from the font).
  */
 const int boxdraw = 1;
-const int boxdraw_bold = 1;
+const int boxdraw_bold = 0;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 1;
+const int boxdraw_braille = 0;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -130,6 +131,7 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.8, alphaUnfocused = 0.7;
+float alphaOffset = 0.0, alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -227,11 +229,10 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
+#define TERMMOD (Mod1Mask|ShiftMask)
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
+	/* mask                 keysym          function        argument */ { XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
@@ -245,6 +246,15 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+    /* my added shortcuts */
+	{ MODKEY,               XK_C,           clipcopy,       {.i =  0} },
+	{ MODKEY,               XK_V,           clippaste,      {.i =  0} },
+    { MODKEY,               XK_L,           kscrollup,     {.i = mousescrollincrement} },
+    { MODKEY,               XK_K,           kscrolldown,    {.i = mousescrollincrement} },
+    { MODKEY,               XK_S,           changealpha,    {.f = -0.05} },
+    { MODKEY,               XK_A,           changealpha,    {.f = +0.05} },
+    { TERMMOD,              XK_L,           zoom,           {.f = +2} },
+    { TERMMOD,              XK_K,           zoom,           {.f = -2} },
 };
 
 /*
@@ -322,7 +332,9 @@ static Key key[] = {
 	{ XK_KP_Delete,     ControlMask,    "\033[3;5~",    +1,    0},
 	{ XK_KP_Delete,     ShiftMask,      "\033[2K",      -1,    0},
 	{ XK_KP_Delete,     ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+    /* to have Delete work properly */
+	/* { XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0}, */
+	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      -1,    0},
 	{ XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
 	{ XK_KP_Multiply,   XK_ANY_MOD,     "\033Oj",       +2,    0},
 	{ XK_KP_Add,        XK_ANY_MOD,     "\033Ok",       +2,    0},
@@ -390,7 +402,9 @@ static Key key[] = {
 	{ XK_Delete,        ControlMask,    "\033[3;5~",    +1,    0},
 	{ XK_Delete,        ShiftMask,      "\033[2K",      -1,    0},
 	{ XK_Delete,        ShiftMask,      "\033[3;2~",    +1,    0},
-	{ XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+    /* to have Delete work properly */
+	/* { XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0}, */
+	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      -1,    0},
 	{ XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
 	{ XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
 	{ XK_BackSpace,     Mod1Mask,       "\033\177",      0,    0},
