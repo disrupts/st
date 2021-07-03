@@ -249,12 +249,13 @@ static Shortcut shortcuts[] = {
     /* my added shortcuts */
 	{ MODKEY,               XK_C,           clipcopy,       {.i =  0} },
 	{ MODKEY,               XK_V,           clippaste,      {.i =  0} },
-    { MODKEY,               XK_L,           kscrollup,     {.i = mousescrollincrement} },
-    { MODKEY,               XK_K,           kscrolldown,    {.i = mousescrollincrement} },
-    { MODKEY,               XK_S,           changealpha,    {.f = -0.05} },
-    { MODKEY,               XK_A,           changealpha,    {.f = +0.05} },
-    { TERMMOD,              XK_L,           zoom,           {.f = +2} },
-    { TERMMOD,              XK_K,           zoom,           {.f = -2} },
+	{ MODKEY,               XK_L,           kscrollup,     {.i = mousescrollincrement} },
+	{ MODKEY,               XK_K,           kscrolldown,    {.i = mousescrollincrement} },
+	{ MODKEY,               XK_S,           changealpha,    {.f = -0.05} },
+	{ MODKEY,               XK_A,           changealpha,    {.f = +0.05} },
+	{ TERMMOD,              XK_L,           zoom,           {.f = +2} },
+	{ TERMMOD,              XK_K,           zoom,           {.f = -2} },
+	{ TERMMOD,              XK_Return,      zoomreset,      {.f =  0} },
 };
 
 /*

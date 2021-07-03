@@ -47,10 +47,12 @@ The following patches are applied:
 - clipboard
 - dynamic-cursor-color
 - font2
-- anysize
 - undercurl
 - st-hidecursor
 - boxdraw
 - colors-at-launch
 - ligatures
 - vertcenter
+- change alpha by Moritz Biering
+
+anysize patch was removed as it seemed more annoying than beneficial.
